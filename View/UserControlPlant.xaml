@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="BookMedicinalPlants.View.UserControlPlant"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookMedicinalPlants.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Name="palntName" Text="{Binding MynamePlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
+        <TextBlock Grid.Row="1" Name="plantPname" Text="{Binding MyPnamePlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
+        <TextBlock Grid.Row="2" Name="palntDesk" Text="{Binding MyDescPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
+        <TextBlock Grid.Row="3" Name="palntRegion" Text="{Binding MyRegPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
+        <TextBlock Grid.Row="4" Name="plantPlus" Text="{Binding MyPlusPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
+        <TextBlock Grid.Row="4" Name="plantMinus" Text="{Binding MyMinusPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
+        <Image Grid.Column="1" Grid.RowSpan="6" x:Name="plantPhoto" Source="{Binding MyphotoPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/>
+    </Grid>
+</UserControl>
