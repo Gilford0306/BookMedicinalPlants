@@ -11,14 +11,14 @@ namespace BookMedicinalPlants.ViewModel
     {
 
         public ObservableCollection<Plant> Plants { get; set; }
-        private Plant selectedPlant;
+        public ObservableCollection<Plant> SelectedPlant { get; set; }
         private string selectedPlantName;
 
-        public Plant MySelectedPlant
-        {
-            get { return selectedPlant; }
-            set { selectedPlant = value; OnPropertyChanged("MySelectedPlant"); }
-        }
+        //public Plant MySelectedPlant
+        //{
+        //    get { return selectedPlant; }
+        //    set { selectedPlant = value; OnPropertyChanged("MySelectedPlant"); }
+        //}
 
 
         public string SelectedPlantName
@@ -36,21 +36,24 @@ namespace BookMedicinalPlants.ViewModel
             get
             {
                 if (searchCommand == null)
+                {
                     searchCommand = new RelayCommand(SearchPlant);
+                }
+                    
 
                 return searchCommand;
             }
         }
         public void SearchPlant()
         {
+            SelectedPlant.Clear();
             bool flag = false;
             foreach (Plant plant in Plants)
             {
-
-                if (plant.Name.ToLower() == selectedPlantName.ToLower())
-                {
+                if (plant.Name.ToLower().Contains(selectedPlantName.ToLower()) || plant.PublicName.ToLower().Contains(selectedPlantName.ToLower())|| plant.Description.ToLower().Contains(selectedPlantName.ToLower()) || plant.Region.ToLower().Contains(selectedPlantName.ToLower()) || plant.Plus.ToLower().Contains(selectedPlantName.ToLower()) || plant.Minus.ToLower().Contains(selectedPlantName.ToLower()))
+                    {
                     flag = true;
-                    MySelectedPlant = plant;
+                    SelectedPlant.Add(plant);
                 }
             }
             if (!flag)
@@ -63,6 +66,7 @@ namespace BookMedicinalPlants.ViewModel
         public MainVM()
         {
             Plants = new ObservableCollection<Plant>()
+            
             //using (MyApplicationContext context = new MyApplicationContext())
             //{
             //    foreach (Drug drug in context.Drugs)
@@ -72,9 +76,9 @@ namespace BookMedicinalPlants.ViewModel
             //}
             {
                 new Plant() { Id = 1, Name = "Name", PublicName = "PublicName", Description = "Description", Region = "region", Plus = "plus", Minus = "Minus", Icon = "https://upload.wikimedia.org/wikipedia/commons/e/e8/Logo_TST.png"},
-                new Plant() { Id = 2, Name = "Name", PublicName = "PublicName", Description = "Description", Region = "region", Plus = "plus", Minus = "Minus", Icon = "https://upload.wikimedia.org/wikipedia/commons/e/e8/Logo_TST.png"}
+                new Plant() { Id = 2, Name = "Nme", PublicName = "PublicName", Description = "Description", Region = "region", Plus = "plus", Minus = "Minus", Icon = "https://upload.wikimedia.org/wikipedia/commons/e/e8/Logo_TST.png"}
             };
-            MySelectedPlant = Plants[0];
+            SelectedPlant = new ObservableCollection<Plant>();
 
         }
 

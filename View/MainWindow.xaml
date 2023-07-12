@@ -15,21 +15,65 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <ListBox Grid.Row="0" ItemsSource="{Binding Plants}" Background="Green" Foreground="White" SelectedItem="{Binding MySelectedPlant}">
-        <ListBox.ItemTemplate>
-            <DataTemplate>
-                <Border>
-                    <StackPanel >
-                        <uc:UserControlPlant MyNamePlant="{Binding Path=Name}" 
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+         </Grid.ColumnDefinitions>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+            <ListBox Grid.Row="0" ItemsSource="{Binding Plants}" Background="#f2e8d6" Foreground="Black">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border>
+                                <StackPanel >
+                                    <uc:UserControlPlant MyNamePlant="{Binding Path=Name}" 
                                              MyPublicName="{Binding Path=PublicName}" 
                                              MyDescription="{Binding Path=Description}"
                                              MyRegion="{Binding Path=Region}" 
                                              MyPlus="{Binding Path=Plus}"
                                              MyMinus="{Binding Path=Minus}" 
                                              MyphotoPlant="{Binding Path=Icon}" />
-                    </StackPanel>
-                </Border>
-            </DataTemplate>
-        </ListBox.ItemTemplate>
-    </ListBox>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+            <Grid Grid.Row="1" Background="#eee1ca">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Foreground="Black" Text="{Binding SelectedPlantName}"></TextBox>
+                <Button Grid.Column="1" Content="Поиск" Foreground="Black" Command="{Binding SearchCommand}" Background="#eee1ca"></Button >
+                </Grid>
+            </Grid>
+
+
+        <ListBox Grid.Column="1" ItemsSource="{Binding SelectedPlant}" Background="#f0e5d0" Foreground="White" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <StackPanel >
+                            <uc:UserControlPlant MyNamePlant="{Binding Path=Name}" 
+                                             MyPublicName="{Binding Path=PublicName}" 
+                                             MyDescription="{Binding Path=Description}"
+                                             MyRegion="{Binding Path=Region}" 
+                                             MyPlus="{Binding Path=Plus}"
+                                             MyMinus="{Binding Path=Minus}" 
+                                             MyphotoPlant="{Binding Path=Icon}" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
 </Window>

@@ -15,6 +15,10 @@
         mc:Ignorable="d"
         Title="WelcomeWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
@@ -22,8 +26,8 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Grid.Row="1" Content="Welcome" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        <Button Grid.Row="2" Content="Вход" Click="Button_Click"/>
-        <Button Grid.Row="3" Content="Вход для администратора" Click="Button_Click_1"/>
+        <Label Grid.Row="1" Content="Welcome" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1" Margin="131,0,0,0"/>
+        <Button Grid.Row="1" Content="Вход" Click="Button_Click" Grid.ColumnSpan="2" Margin="0,22,0,0" Grid.RowSpan="2"/>
+        <Button Grid.Row="2" Content="Вход для администратора" Click="Button_Click_1" Grid.ColumnSpan="2" Margin="0,32,0,0" Grid.RowSpan="2"/>
     </Grid>
 </Window>
