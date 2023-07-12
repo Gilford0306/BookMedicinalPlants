@@ -12,19 +12,21 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Name="palntName" Text="{Binding MynamePlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
-        <TextBlock Grid.Row="1" Name="plantPname" Text="{Binding MyPnamePlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
-        <TextBlock Grid.Row="2" Name="palntDesk" Text="{Binding MyDescPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
-        <TextBlock Grid.Row="3" Name="palntRegion" Text="{Binding MyRegPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
-        <TextBlock Grid.Row="4" Name="plantPlus" Text="{Binding MyPlusPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
-        <TextBlock Grid.Row="4" Name="plantMinus" Text="{Binding MyMinusPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
-        <Image Grid.Column="1" Grid.RowSpan="6" x:Name="plantPhoto" Source="{Binding MyphotoPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/>
+        <TextBlock Grid.Row="0"  Grid.Column="1" Name="plantName"> <Run Text="{Binding MyNamePlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Name="plantPname"> <Run Text="Название народное -  "/> <Run Text="{Binding MyPublicName, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Name="palntRegion"> <Run Text="Регион роста -  "/> <Run Text="{Binding MyRegion, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
+
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Name="plantDesk" Text="{Binding MyDescription, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
+        <TextBlock Grid.Row="4" Grid.ColumnSpan="2" Name="plantPlus"> <Run Text="Положительные свойства -  "/> <Run Text="{Binding MyPlus, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
+        <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Name="plantMinus"> <Run Text="Отрицательные  свойства -  "/> <Run Text="{Binding MyMinus, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
+        <Image Grid.Column="0" Grid.RowSpan="3" x:Name="plantPhoto" Source="{Binding MyphotoPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}" Height="100" Width="200"/>
     </Grid>
 </UserControl>
+

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookMedicinalPlants.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace BookMedicinalPlants
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainVM();
         }
     }
 }

@@ -62,7 +62,7 @@ namespace BookMedicinalPlants.ViewModel
 
         public MainVM()
         {
-            Plants = new ObservableCollection<Plant>();
+            Plants = new ObservableCollection<Plant>()
             //using (MyApplicationContext context = new MyApplicationContext())
             //{
             //    foreach (Drug drug in context.Drugs)
@@ -70,6 +70,10 @@ namespace BookMedicinalPlants.ViewModel
             //        Drugs.Add(drug);
             //    }
             //}
+            {
+                new Plant() { Id = 1, Name = "Name", PublicName = "PublicName", Description = "Description", Region = "region", Plus = "plus", Minus = "Minus", Icon = "https://upload.wikimedia.org/wikipedia/commons/e/e8/Logo_TST.png"},
+                new Plant() { Id = 2, Name = "Name", PublicName = "PublicName", Description = "Description", Region = "region", Plus = "plus", Minus = "Minus", Icon = "https://upload.wikimedia.org/wikipedia/commons/e/e8/Logo_TST.png"}
+            };
             MySelectedPlant = Plants[0];
 
         }
@@ -82,3 +86,12 @@ namespace BookMedicinalPlants.ViewModel
         }
     }
 }
+
+//private int id;
+//private string name;
+//private string publiccname;
+//private string description;
+//private string region;
+//private string plus;
+//private string minus;
+//private string icon;

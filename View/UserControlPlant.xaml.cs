@@ -20,31 +20,60 @@ namespace BookMedicinalPlants.View
     /// </summary>
     public partial class UserControlPlant : UserControl
     {
-        public static readonly DependencyProperty NameProdProperty = DependencyProperty.Register(nameof(MynameProd), typeof(string), typeof(UserControlPlant));
-        public string MynameProd
+        public static readonly DependencyProperty NamePlantProperty = DependencyProperty.Register(nameof(MyNamePlant), typeof(string), typeof(UserControlPlant));
+        public string MyNamePlant
         {
-            get { return (string)GetValue(NameProdProperty); }
-            set { SetValue(NameProdProperty, value); }
+            get { return (string)GetValue(NamePlantProperty); }
+            set { SetValue(NamePlantProperty, value); }
         }
-        public static readonly DependencyProperty PriceProdProperty = DependencyProperty.Register(nameof(MypriceProd), typeof(string), typeof(UserControlPlant));
-        public string MypriceProd
+        public static readonly DependencyProperty PnamePlantProperty = DependencyProperty.Register(nameof(MyPublicName), typeof(string), typeof(UserControlPlant));
+        public string MyPublicName
         {
-            get { return (string)GetValue(PriceProdProperty); }
-            set { SetValue(PriceProdProperty, value); }
+            get { return (string)GetValue(PnamePlantProperty); }
+            set { SetValue(PnamePlantProperty, value); }
         }
-        public static readonly DependencyProperty PhotoProdProperty = DependencyProperty.Register(nameof(MyphotoProd), typeof(string), typeof(UserControlPlant));
-        public string MyphotoProd
+
+
+        public static readonly DependencyProperty DescriptionPlantProperty = DependencyProperty.Register(nameof(MyDescription), typeof(string), typeof(UserControlPlant));
+        public string MyDescription
         {
-            get { return (string)GetValue(PhotoProdProperty); }
-            set { SetValue(PhotoProdProperty, value); }
+            get { return (string)GetValue(DescriptionPlantProperty); }
+            set { SetValue(DescriptionPlantProperty, value); }
         }
+        public static readonly DependencyProperty PhotoPlantProperty = DependencyProperty.Register(nameof(MyphotoPlant), typeof(string), typeof(UserControlPlant));
+        public string MyphotoPlant
+        {
+            get { return (string)GetValue(PhotoPlantProperty); }
+            set { SetValue(PhotoPlantProperty, value); }
+        }
+
+        public static readonly DependencyProperty RegionPlantProperty = DependencyProperty.Register(nameof(MyRegion), typeof(string), typeof(UserControlPlant));
+        public string MyRegion
+        {
+            get { return (string)GetValue(RegionPlantProperty); }
+            set { SetValue(RegionPlantProperty, value); }
+        }
+
+        public static readonly DependencyProperty PlusPlantProperty = DependencyProperty.Register(nameof(MyPlus), typeof(string), typeof(UserControlPlant));
+        public string MyPlus
+        {
+            get { return (string)GetValue(PlusPlantProperty); }
+            set { SetValue(PlusPlantProperty, value); }
+        }
+        public static readonly DependencyProperty MinusPlantProperty = DependencyProperty.Register(nameof(MyMinus), typeof(string), typeof(UserControlPlant));
+        public string MyMinus
+        {
+            get { return (string)GetValue(MinusPlantProperty); }
+            set { SetValue(MinusPlantProperty, value); }
+        }
+
+
+
 
         public UserControlPlant()
         {
             InitializeComponent();
-            //prodName.Text = MynameProd;
-            //prodPrice.Text = MypriceProd;
-            //prodPhoto.Source =(ImageSource)new ImageSourceConverter().ConvertFromString(MyphotoProd);
+
         }
 
     }

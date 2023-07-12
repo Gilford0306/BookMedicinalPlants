@@ -12,7 +12,7 @@ namespace BookMedicinalPlants.Model
     {
         private int id;
         private string name;
-        private string publiccname;
+        private string publicname;
         private string description;
         private string region;
         private string plus;
@@ -36,8 +36,8 @@ namespace BookMedicinalPlants.Model
         }
         public string PublicName
         {
-            get { return publiccname; }
-            set { publiccname = value; OnPropertyChanged("PublicName"); }
+            get { return publicname; }
+            set { publicname = value; OnPropertyChanged("PublicName"); }
         }
         public string Description
         {

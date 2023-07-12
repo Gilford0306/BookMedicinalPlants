@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookMedicinalPlants"
+        xmlns:uc="clr-namespace:BookMedicinalPlants.View"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
@@ -19,9 +20,13 @@
             <DataTemplate>
                 <Border>
                     <StackPanel >
-                        <!--<local:UserControlPlant MynamePlant="{Binding Path=Name}" MypublicnamePlant="{Binding Path=PublicName}" MyphotoPlant="https://yellow.ua/media/catalog/product/cache/9/image/508x508/9df78eab33525d08d6e5fb8d27136e95/2/1/2184907.1800x1800w.jpg"/>-->
-                        
-                        
+                        <uc:UserControlPlant MyNamePlant="{Binding Path=Name}" 
+                                             MyPublicName="{Binding Path=PublicName}" 
+                                             MyDescription="{Binding Path=Description}"
+                                             MyRegion="{Binding Path=Region}" 
+                                             MyPlus="{Binding Path=Plus}"
+                                             MyMinus="{Binding Path=Minus}" 
+                                             MyphotoPlant="{Binding Path=Icon}" />
                     </StackPanel>
                 </Border>
             </DataTemplate>
