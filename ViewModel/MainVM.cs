@@ -2,8 +2,10 @@
 using GalaSoft.MvvmLight.Command;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Reflection.PortableExecutable;
 using System.Runtime.CompilerServices;
 using System.Windows;
+
 
 namespace BookMedicinalPlants.ViewModel
 {
@@ -12,13 +14,14 @@ namespace BookMedicinalPlants.ViewModel
 
         public ObservableCollection<Plant> Plants { get; set; }
         public ObservableCollection<Plant> SelectedPlant { get; set; }
+        private Plant mySelectedPlant;
         private string selectedPlantName;
 
-        //public Plant MySelectedPlant
-        //{
-        //    get { return selectedPlant; }
-        //    set { selectedPlant = value; OnPropertyChanged("MySelectedPlant"); }
-        //}
+        public Plant MySelectedPlant
+        {
+            get { return mySelectedPlant; }
+            set { mySelectedPlant = value; OnPropertyChanged("MySelectedPlant"); }
+        }
 
 
         public string SelectedPlantName
@@ -60,6 +63,37 @@ namespace BookMedicinalPlants.ViewModel
                 MessageBox.Show("Растение не найдено");
         }
 
+        private RelayCommand saveCommand;
+
+        public RelayCommand SaveCommand
+        {
+            get
+            {
+                if (searchCommand == null)
+                {
+                    searchCommand = new RelayCommand(SavePlant);
+                }
+
+
+                return searchCommand;
+            }
+        }
+        public void SavePlant()
+        {
+
+                using (MyApplicationContext context = new MyApplicationContext())
+                {
+
+                    context.Plants.Add(new Plant() { Name = "test", PublicName = "test", Description = "test" });
+                    context.SaveChanges();
+                    MessageBox.Show("Растение добавлено");
+                }
+            
+        }
+
+
+
+
 
 
 
@@ -90,12 +124,3 @@ namespace BookMedicinalPlants.ViewModel
         }
     }
 }
-
-//private int id;
-//private string name;
-//private string publiccname;
-//private string description;
-//private string region;
-//private string plus;
-//private string minus;
-//private string icon;

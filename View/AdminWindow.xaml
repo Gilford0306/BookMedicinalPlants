@@ -1,0 +1,83 @@
+﻿<Window x:Class="BookMedicinalPlants.View.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookMedicinalPlants.View"
+        xmlns:uc="clr-namespace:BookMedicinalPlants.View"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="450" Width="800">
+    <Grid Background="Wheat">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <ListBox Grid.Row="0" ItemsSource="{Binding Plants}" Background="#f2e8d6" Foreground="Black" SelectedItem="{Binding MySelectedPlant}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border>
+                            <StackPanel >
+                                
+                                <uc:UserControlPlant MyNamePlant="{Binding Path=Name}" 
+                                             MyPublicName="{Binding Path=PublicName}" 
+                                             MyDescription="{Binding Path=Description}"
+                                             MyRegion="{Binding Path=Region}" 
+                                             MyPlus="{Binding Path=Plus}"
+                                             MyMinus="{Binding Path=Minus}" 
+                                             MyphotoPlant="{Binding Path=Icon}" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Grid Grid.Row="1" Background="#eee1ca">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Foreground="Black" Text="{Binding SelectedPlantName}"></TextBox>
+                <Button Grid.Column="1" Content="Поиск" Foreground="Black" Command="{Binding SearchCommand}" Background="#eee1ca"></Button >
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Content="Сохранить" Foreground="Black" Command="{Binding SaveCommand}" Background="#eee1ca"></Button >
+                <Button Grid.Column="1" Content="Добавить " Foreground="Black" Command="{Binding AddCommand}" Background="#eee1ca"></Button >
+                <Button Grid.Column="2" Content="Удалить" Foreground="Black" Command="{Binding DelCommand}" Background="#eee1ca"></Button >
+            </Grid>
+        </Grid>
+
+        <StackPanel Grid.Column="1" Background="#f0e5d0"  DataContext="{Binding MySelectedPlant}">
+        <TextBox Text="{Binding Path=Name}"></TextBox>
+        <TextBox Text="{Binding Path=PublicName}"></TextBox>
+        <TextBox Text="{Binding Path=Description}"></TextBox>
+        <TextBox Text="{Binding Path=Region}"></TextBox>
+        <TextBox Text="{Binding Path=Plus}"></TextBox>
+        <TextBox Text="{Binding Path=Minus}"></TextBox>
+        <TextBox Text="{Binding Path=Icon}"></TextBox>
+        </StackPanel>
+    </Grid>
+</Window>

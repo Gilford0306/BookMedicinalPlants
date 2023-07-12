@@ -58,7 +58,7 @@
             </Grid>
 
 
-        <ListBox Grid.Column="1" ItemsSource="{Binding SelectedPlant}" Background="#f0e5d0" Foreground="White" >
+        <ListBox Grid.Column="1" ItemsSource="{Binding SelectedPlant}" Background="#f0e5d0" Foreground="Black" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border>

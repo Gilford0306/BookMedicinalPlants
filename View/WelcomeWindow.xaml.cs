@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace BookMedicinalPlants.View
 {
@@ -33,9 +34,19 @@ namespace BookMedicinalPlants.View
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            MainWindow win1 = new MainWindow();
-            win1.Show();
-            this.Close();
+            Login.Visibility = Visibility.Visible;
+            Password.Visibility = Visibility.Visible;
+            enter.Visibility = Visibility.Visible;
+        }
+
+        private void enter_Click(object sender, RoutedEventArgs e)
+        {
+            //if (Login.Text == "admin" && Password.Text == "admin")
+            {
+                AdminWindow win1 = new AdminWindow();
+                win1.Show();
+                this.Close();
+            }
         }
     }
 }
