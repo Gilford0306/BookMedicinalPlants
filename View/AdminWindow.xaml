@@ -56,7 +56,7 @@
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBox Grid.Column="0" Foreground="Black" Text="{Binding SelectedPlantName}"></TextBox>
-                <Button Grid.Column="1" Content="Поиск" Foreground="Black" Command="{Binding SearchCommand}" Background="#eee1ca"></Button >
+                <Button Grid.Column="1" Content="Поиск" Foreground="Black" Background="#eee1ca"></Button >
             </Grid>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
@@ -64,9 +64,9 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Content="Сохранить" Foreground="Black" Command="{Binding SaveCommand}" Background="#eee1ca"></Button >
-                <Button Grid.Column="1" Content="Добавить " Foreground="Black" Command="{Binding AddCommand}" Background="#eee1ca"></Button >
-                <Button Grid.Column="2" Content="Удалить" Foreground="Black" Command="{Binding DelCommand}" Background="#eee1ca"></Button >
+                <Button Grid.Column="0" Name="Save" Content="Сохранить" Foreground="Black" Command="{Binding SaveCommand}" Background="#eee1ca" Margin="10,0,10,0"></Button >
+                <Button Grid.Column="1" Name="Add" Content="Добавить " Foreground="Black" Command="{Binding AddCommand}" Background="#eee1ca" Margin="10,0,10,0"></Button >
+                <Button Grid.Column="2" Name="Del" Content="Удалить" Foreground="Black"  Command="{Binding DelCommand}" Background="#eee1ca" Margin="10,0,10,0"></Button >
             </Grid>
         </Grid>
 
