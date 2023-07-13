@@ -23,13 +23,26 @@ namespace BookMedicinalPlants.View
         public WelcomeWindow()
         {
             InitializeComponent();
+            List<string> styles = new List<string> { "day", "night" };
+            styleBox.SelectionChanged += ThemeChange;
+            styleBox.ItemsSource = styles;
+            styleBox.SelectedItem = "day";
+        }
+
+        private void ThemeChange(object sender, SelectionChangedEventArgs e)
+        {
+            string style = styleBox.SelectedItem as string;
+            var uri = new Uri(style + ".xaml", UriKind.Relative);
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            Application.Current.Resources.Clear();
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow win1 = new MainWindow();
             win1.Show();
-            this.Close();
+           
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -45,7 +58,7 @@ namespace BookMedicinalPlants.View
             {
                 AdminWindow win1 = new AdminWindow();
                 win1.Show();
-                this.Close();
+                
             }
         }
     }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookMedicinalPlants.View"
         xmlns:uc="clr-namespace:BookMedicinalPlants.View"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:viewmodel="clr-namespace:BookMedicinalPlants.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainVM}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -17,8 +17,8 @@
         Title="AdminWindow" Height="450" Width="800">
     <Grid Background="Wheat">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
 
@@ -56,7 +56,7 @@
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <TextBox Grid.Column="0" Foreground="Black" Text="{Binding SelectedPlantName}"></TextBox>
-                <Button Grid.Column="1" Content="Поиск" Foreground="Black" Background="#eee1ca"></Button >
+                <Button Grid.Column="1" Content="Поиск" Foreground="Black"  Command="{Binding SearchAdminCommand}" Background="#eee1ca"></Button >
             </Grid>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
@@ -64,13 +64,13 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Name="Save" Content="Сохранить" Foreground="Black" Command="{Binding SaveCommand}" Background="#eee1ca" Margin="10,0,10,0"></Button >
-                <Button Grid.Column="1" Name="Add" Content="Добавить " Foreground="Black" Command="{Binding AddCommand}" Background="#eee1ca" Margin="10,0,10,0"></Button >
-                <Button Grid.Column="2" Name="Del" Content="Удалить" Foreground="Black"  Command="{Binding DelCommand}" Background="#eee1ca" Margin="10,0,10,0"></Button >
+                <Button Grid.Column="0" Name="Save" Content="Сохранить" Foreground="Black" Command="{Binding SaveCommand}" Background="#eee1ca" ></Button >
+                <Button Grid.Column="1" Name="Add" Content="Добавить " Foreground="Black" Command="{Binding AddCommand}" Background="#eee1ca" ></Button >
+                <Button Grid.Column="2" Name="Del" Content="Удалить" Foreground="Black"  Command="{Binding DelCommand}" Background="#eee1ca" ></Button >
             </Grid>
         </Grid>
 
-        <StackPanel Grid.Column="1" Background="#f0e5d0"  DataContext="{Binding MySelectedPlant}">
+        <StackPanel Grid.Column="1" Background="#f0e5d0" DataContext="{Binding MySelectedPlant}">
         <TextBox Text="{Binding Path=Name}"></TextBox>
         <TextBox Text="{Binding Path=PublicName}"></TextBox>
         <TextBox Text="{Binding Path=Description}"></TextBox>

@@ -6,8 +6,7 @@ using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 
 namespace BookMedicinalPlants.ViewModel
@@ -77,6 +76,41 @@ namespace BookMedicinalPlants.ViewModel
 
             }
 
+        }
+
+
+
+        private RelayCommand searchAdminCommand;
+
+        public RelayCommand SearchAdminCommand
+        {
+            get
+            {
+                if (searchAdminCommand == null)
+                {
+                    searchAdminCommand = new RelayCommand(SearchAdminPlant);
+                }
+
+                return searchAdminCommand;
+            }
+        }
+        public void SearchAdminPlant()
+        {
+            bool flag = false;
+            {
+                foreach (Plant plant in Plants)
+                {
+                    if (plant.Name.ToLower().Contains(selectedPlantName.ToLower()) || plant.PublicName.ToLower().Contains(selectedPlantName.ToLower()) || plant.Description.ToLower().Contains(selectedPlantName.ToLower()) || plant.Region.ToLower().Contains(selectedPlantName.ToLower()) || plant.Plus.ToLower().Contains(selectedPlantName.ToLower()) || plant.Minus.ToLower().Contains(selectedPlantName.ToLower()))
+                    {
+                        MySelectedPlant = plant;
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag)
+                    MessageBox.Show("Растение не найдено");
+
+            }
         }
 
         private RelayCommand saveCommand;

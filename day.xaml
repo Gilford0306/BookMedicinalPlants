@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:BookMedicinalPlants">
+    <Style x:Key="WhGrid" TargetType="Grid">
+        <Setter Property="Background" Value="Wheat"/>
+    </Style>
+    <Style x:Key="WhText" TargetType="Label">
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+    <Style x:Key="WhBlox" TargetType="TextBox">
+        <Setter Property="Background" Value="Wheat"/>
+        <Setter Property="Foreground" Value="Black"/>
+    </Style>
+</ResourceDictionary>

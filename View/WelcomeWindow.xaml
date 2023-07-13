@@ -14,7 +14,7 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="WelcomeWindow" Height="450" Width="800">
-    <Grid Background="#f2e8d6">
+    <Grid Style="{DynamicResource ResourceKey=WhGrid}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
@@ -30,11 +30,16 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Label Grid.Row="1" Content="Welcome" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" />
+        <Label Grid.Row="1" FontSize="18" Style="{DynamicResource ResourceKey=WhText}" Content="Справочник Лекарственных Растений" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1" />
         <Button Grid.Row="2" Content="Вход" Click="Button_Click" Grid.Column ="1" />
         <Button Grid.Row="3" Content="Вход для администратора"  Grid.Column="1" Click="Button_Click_1" />
-        <TextBox x:Name ="Login"  Grid.Row="4"  Grid.Column="1" Background="Wheat" Visibility="Hidden"/>
-        <TextBox  x:Name ="Password"  Grid.Row="5"  Grid.Column="1" Background="Wheat" Visibility="Hidden"/>
+        <TextBox x:Name ="Login"  Grid.Row="4"  Grid.Column="1"  Style="{DynamicResource ResourceKey=WhBlox}" Visibility="Hidden"/>
+        <TextBox  x:Name ="Password"  Grid.Row="5"  Grid.Column="1"  Style="{DynamicResource ResourceKey=WhBlox}" Visibility="Hidden"/>
         <Button  x:Name ="enter"  Grid.Row="6" Content="Вход"  Grid.Column="1"  Visibility="Hidden" Click="enter_Click" />
+        <Image Grid.Column="1" Grid.Row="0"  Source="https://i.imgur.com/fFfzr9j.png"/>
+
+        <StackPanel VerticalAlignment="Bottom" Grid.Column="3" Grid.Row="8">
+            <ComboBox x:Name="styleBox" />
+        </StackPanel>
     </Grid>
 </Window>
