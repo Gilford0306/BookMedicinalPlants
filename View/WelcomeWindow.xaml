@@ -34,7 +34,7 @@
         <Button Grid.Row="2" Content="Вход" Click="Button_Click" Grid.Column ="1" />
         <Button Grid.Row="3" Content="Вход для администратора"  Grid.Column="1" Click="Button_Click_1" />
         <TextBox x:Name ="Login"  Grid.Row="4"  Grid.Column="1"  Style="{DynamicResource ResourceKey=WhBlox}" Visibility="Hidden"/>
-        <TextBox  x:Name ="Password"  Grid.Row="5"  Grid.Column="1"  Style="{DynamicResource ResourceKey=WhBlox}" Visibility="Hidden"/>
+        <PasswordBox x:Name ="Password"  Grid.Row="5"  Grid.Column="1" Visibility="Hidden" Style="{DynamicResource ResourceKey=WhPass}"/>
         <Button  x:Name ="enter"  Grid.Row="6" Content="Вход"  Grid.Column="1"  Visibility="Hidden" Click="enter_Click" />
         <Image Grid.Column="1" Grid.Row="0"  Source="https://i.imgur.com/fFfzr9j.png"/>
 

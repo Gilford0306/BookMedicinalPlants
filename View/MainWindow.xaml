@@ -14,22 +14,22 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200">
+        Title="MainWindow" Height="800" Width="1500">
 
-    <Grid>
+    <Grid Style="{DynamicResource ResourceKey=WhGrid}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
+            <ColumnDefinition Width="1.5*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
          </Grid.ColumnDefinitions>
 
 
-            <Grid>
+        <Grid Style="{DynamicResource ResourceKey=WhGrid}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="auto"></RowDefinition>
-                </Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+            </Grid.RowDefinitions>
 
-            <ListBox Grid.Row="0" ItemsSource="{Binding Plants}" Background="#f2e8d6" Foreground="Black">
+            <ListBox Grid.Row="0" ItemsSource="{Binding Plants}" >
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Border>
@@ -46,19 +46,19 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-
-            <Grid Grid.Row="1" Background="#eee1ca">
+         
+            
+            <Grid Grid.Row="1" Style="{DynamicResource ResourceKey=WhGrid}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"></ColumnDefinition>
                         <ColumnDefinition Width="auto"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <TextBox Grid.Column="0" Foreground="Black" Text="{Binding SelectedPlantName}"></TextBox>
-                <Button Grid.Column="1" Content="Поиск" Foreground="Black" Command="{Binding SearchCommand}" Background="#eee1ca"></Button >
+                <TextBox Grid.Column="0" Height="25" Style="{DynamicResource ResourceKey=WhBlox}" Text="{Binding SelectedPlantName}"></TextBox>
+                <Button  Grid.Column="1" Content="Поиск" Command="{Binding SearchCommand}" Style="{DynamicResource ResourceKey=Whbtn}" ></Button >
                 </Grid>
             </Grid>
 
-
-        <ListBox Grid.Column="1" ItemsSource="{Binding SelectedPlant}" Background="#f0e5d0" Foreground="Black" >
+        <ListBox Grid.Column="1" ItemsSource="{Binding SelectedPlant}" >
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border>

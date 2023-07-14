@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:BookMedicinalPlants.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Style="{DynamicResource ResourceKey=WhGrid}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -19,13 +19,13 @@
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0"  Grid.Column="1" Name="plantName" TextWrapping="Wrap"> <Run Text="{Binding MyNamePlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="1" Name="plantPname" TextWrapping="Wrap"> <Run Text="Название народное:  " FontWeight="Bold"/> <Run Text="{Binding MyPublicName, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
-        <TextBlock Grid.Row="2" Grid.Column="1" Name="palntRegion" TextWrapping="Wrap"> <Run Text="Регион роста :  " FontWeight="Bold"/> <Run Text="{Binding MyRegion, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
+        <TextBlock Style="{DynamicResource ResourceKey=WhBlock}" Grid.Row="0"  Grid.Column="1" Name="plantName" TextWrapping="Wrap"> <Run Text="{Binding MyNamePlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
+        <TextBlock Style="{DynamicResource ResourceKey=WhBlock}" Grid.Row="1" Grid.Column="1" Name="plantPname" TextWrapping="Wrap"> <Run Text="Название народное:  " FontWeight="Bold"/> <Run Text="{Binding MyPublicName, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
+        <TextBlock Style="{DynamicResource ResourceKey=WhBlock}" Grid.Row="2" Grid.Column="1" Name="palntRegion" TextWrapping="Wrap"> <Run Text="Регион роста :  " FontWeight="Bold"/> <Run Text="{Binding MyRegion, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
 
-        <TextBlock Margin="0,10,0,10" Grid.Row="3" Grid.ColumnSpan="2" TextWrapping="Wrap" Name="plantDesk" Text="{Binding MyDescription, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
-        <TextBlock Margin="0,0,0,10" Grid.Row="4" Grid.ColumnSpan="2" TextWrapping="Wrap" Name="plantPlus"> <Run Text="Положительные свойства:  " FontWeight="Bold"/><Run Text="{Binding MyPlus, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
-        <TextBlock Margin="0,0,0,10" Grid.Row="5" Grid.ColumnSpan="2" TextWrapping="Wrap" Name="plantMinus"> <Run Text="Отрицательные  свойства :  " FontWeight="Bold"/> <Run Text="{Binding MyMinus, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
+        <TextBlock Style="{DynamicResource ResourceKey=WhBlock}" Margin="0,10,0,10" Grid.Row="3" Grid.ColumnSpan="2" TextWrapping="Wrap" Name="plantDesk" Text="{Binding MyDescription, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"></TextBlock>
+        <TextBlock Style="{DynamicResource ResourceKey=WhBlock}" Margin="0,0,0,10" Grid.Row="4" Grid.ColumnSpan="2" TextWrapping="Wrap" Name="plantPlus"> <Run Text="Положительные свойства:  " FontWeight="Bold"/><Run Text="{Binding MyPlus, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
+        <TextBlock Style="{DynamicResource ResourceKey=WhBlock}" Margin="0,0,0,10" Grid.Row="5" Grid.ColumnSpan="2" TextWrapping="Wrap" Name="plantMinus"> <Run Text="Отрицательные  свойства :  " FontWeight="Bold"/> <Run Text="{Binding MyMinus, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}"/></TextBlock>
         <Image Grid.Column="0" Grid.RowSpan="3" x:Name="plantPhoto" Source="{Binding MyphotoPlant, RelativeSource={RelativeSource AncestorType=local:UserControlPlant}}" Height="200" Width="300"/>
     </Grid>
 </UserControl>

@@ -27,12 +27,13 @@ namespace BookMedicinalPlants.View
             styleBox.SelectionChanged += ThemeChange;
             styleBox.ItemsSource = styles;
             styleBox.SelectedItem = "day";
+
         }
 
         private void ThemeChange(object sender, SelectionChangedEventArgs e)
         {
             string style = styleBox.SelectedItem as string;
-            var uri = new Uri(style + ".xaml", UriKind.Relative);
+            var uri = new Uri("View/"+style + ".xaml", UriKind.Relative);
             ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
             Application.Current.Resources.Clear();
             Application.Current.Resources.MergedDictionaries.Add(resourceDict);
@@ -54,7 +55,7 @@ namespace BookMedicinalPlants.View
 
         private void enter_Click(object sender, RoutedEventArgs e)
         {
-            //if (Login.Text == "admin" && Password.Text == "admin")
+            if (Login.Text == "admin" && Password.Password == "admin")
             {
                 AdminWindow win1 = new AdminWindow();
                 win1.Show();

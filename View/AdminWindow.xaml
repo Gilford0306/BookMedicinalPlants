@@ -14,27 +14,26 @@
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
-    <Grid Background="Wheat">
+        Title="AdminWindow" Height="800" Width="1500">
+    <Grid  Style="{DynamicResource ResourceKey=WhGrid}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
 
-        <Grid>
+        <Grid  Style="{DynamicResource ResourceKey=WhGrid}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <ListBox Grid.Row="0" ItemsSource="{Binding Plants}" Background="#f2e8d6" Foreground="Black" SelectedItem="{Binding MySelectedPlant}">
+            <ListBox Grid.Row="0" ItemsSource="{Binding Plants}" SelectedItem="{Binding MySelectedPlant}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border>
-                            <StackPanel >
-                                
+                            <StackPanel  Style="{DynamicResource ResourceKey=WhStack}" >
                                 <uc:UserControlPlant MyNamePlant="{Binding Path=Name}" 
                                              MyPublicName="{Binding Path=PublicName}" 
                                              MyDescription="{Binding Path=Description}"
@@ -48,36 +47,36 @@
                 </ListBox.ItemTemplate>
             </ListBox>
 
-            <Grid Grid.Row="1" Background="#eee1ca">
+            <Grid Grid.Row="1"  Style="{DynamicResource ResourceKey=WhGrid}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                     <ColumnDefinition Width="auto"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" Foreground="Black" Text="{Binding SelectedPlantName}"></TextBox>
-                <Button Grid.Column="1" Content="Поиск" Foreground="Black"  Command="{Binding SearchAdminCommand}" Background="#eee1ca"></Button >
+                <TextBox Grid.Column="0" Style="{DynamicResource ResourceKey=WhBlox}" Text="{Binding SelectedPlantName}"></TextBox>
+                <Button Grid.Column="1" Content="Поиск" Style="{DynamicResource ResourceKey=Whbtn}"  Command="{Binding SearchAdminCommand}"></Button >
             </Grid>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="2"  Style="{DynamicResource ResourceKey=WhGrid}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                <Button Grid.Column="0" Name="Save" Content="Сохранить" Foreground="Black" Command="{Binding SaveCommand}" Background="#eee1ca" ></Button >
-                <Button Grid.Column="1" Name="Add" Content="Добавить " Foreground="Black" Command="{Binding AddCommand}" Background="#eee1ca" ></Button >
-                <Button Grid.Column="2" Name="Del" Content="Удалить" Foreground="Black"  Command="{Binding DelCommand}" Background="#eee1ca" ></Button >
+                <Button Grid.Column="0" Name="Save" Content="Сохранить" Command="{Binding SaveCommand}" Style="{DynamicResource ResourceKey=Whbtn}" ></Button >
+                <Button Grid.Column="1" Name="Add" Content="Добавить" Command="{Binding AddCommand}" Style="{DynamicResource ResourceKey=Whbtn}" ></Button >
+                <Button Grid.Column="2" Name="Del" Content="Удалить" Command="{Binding DelCommand}" Style="{DynamicResource ResourceKey=Whbtn}"  ></Button >
             </Grid>
         </Grid>
 
-        <StackPanel Grid.Column="1" Background="#f0e5d0" DataContext="{Binding MySelectedPlant}">
-        <TextBox Text="{Binding Path=Name}"></TextBox>
-        <TextBox Text="{Binding Path=PublicName}"></TextBox>
-        <TextBox Text="{Binding Path=Description}"></TextBox>
-        <TextBox Text="{Binding Path=Region}"></TextBox>
-        <TextBox Text="{Binding Path=Plus}"></TextBox>
-        <TextBox Text="{Binding Path=Minus}"></TextBox>
-        <TextBox Text="{Binding Path=Icon}"></TextBox>
+        <StackPanel Grid.Column="1"  Style="{DynamicResource ResourceKey=WhStack}" DataContext="{Binding MySelectedPlant}">
+        <TextBox TextWrapping="Wrap" Text="{Binding Path=Name}"></TextBox>
+        <TextBox TextWrapping="Wrap" Text="{Binding Path=PublicName}"></TextBox>
+        <TextBox TextWrapping="Wrap" Text="{Binding Path=Description}"></TextBox>
+        <TextBox TextWrapping="Wrap" Text="{Binding Path=Region}"></TextBox>
+        <TextBox TextWrapping="Wrap" Text="{Binding Path=Plus}"></TextBox>
+        <TextBox TextWrapping="Wrap" Text="{Binding Path=Minus}"></TextBox>
+        <TextBox TextWrapping="Wrap" Text="{Binding Path=Icon}"></TextBox>
         </StackPanel>
     </Grid>
 </Window>
